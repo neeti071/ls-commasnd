@@ -1,0 +1,12 @@
+---
+- name: Run ls command on remote hosts
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run ls command
+      shell: ls
+      register: ls_output
+
+    - name: Display ls output
+      debug:
+        var: ls_output.stdout
